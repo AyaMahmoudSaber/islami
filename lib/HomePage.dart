@@ -4,6 +4,7 @@ import 'package:islami_app/Hadeht/Hadeht_Tab.dart';
 import 'package:islami_app/Quran/Quran_Tab.dart';
 import 'package:islami_app/Radio/Radio_Tab.dart';
 import 'package:islami_app/Sebha/Sebha_Tab.dart';
+import 'package:islami_app/Setting/Setting%20Tab.dart';
 import 'package:islami_app/main.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,10 +28,10 @@ class _HomePageState extends State<HomePage> {
             centerTitle: true,
             elevation: 0,
             backgroundColor: Colors.transparent,
-            title: Text('Islami',style: TextStyle(
-              color: Colors.black,fontSize: 24
-
-            ),),
+            title: Text(
+              'Islami',
+              style: TextStyle(color: Colors.black, fontSize: 24),
+            ),
           ),
           backgroundColor: Colors.transparent,
           bottomNavigationBar: Theme(
@@ -40,8 +41,7 @@ class _HomePageState extends State<HomePage> {
             child: BottomNavigationBar(
               onTap: (index) {
                 currentPage = index;
-                setState(() {
-                });
+                setState(() {});
               },
               currentIndex: currentPage,
               selectedItemColor: MyThemeData.SelectedColor,
@@ -52,28 +52,35 @@ class _HomePageState extends State<HomePage> {
                   label: 'Quran',
                   icon: Image.asset(
                     'assets/images/quran.png',
-                    width: 36,
+                    width: 30,
                   ),
                 ),
                 BottomNavigationBarItem(
                   label: 'Hadeth',
                   icon: Image.asset(
                     'assets/images/Group 6.png',
-                    width: 36,
+                    width: 30,
                   ),
                 ),
                 BottomNavigationBarItem(
                   label: 'Sebha',
                   icon: Image.asset(
                     'assets/images/sebha.png',
-                    width: 36,
+                    width: 30,
                   ),
                 ),
                 BottomNavigationBarItem(
                   label: 'Radio',
                   icon: Image.asset(
                     'assets/images/radio.png',
-                    width: 36,
+                    width: 30,
+                  ),
+                ),
+                BottomNavigationBarItem(
+                  label: 'Setting',
+                  icon: Icon(
+                    Icons.settings,
+                    size: 30.0,
                   ),
                 ),
               ],
@@ -85,16 +92,17 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget getCurrentPage()
-  {
+  Widget getCurrentPage() {
     if (currentPage == 0) {
       return QuranTab();
     } else if (currentPage == 1) {
       return HadehtTab();
     } else if (currentPage == 2) {
       return SebhaTab();
-    } else {
+    } else if (currentPage == 3) {
       return RadioTab();
+    } else {
+      return SettingTab();
     }
   }
 }

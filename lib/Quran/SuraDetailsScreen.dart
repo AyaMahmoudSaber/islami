@@ -38,8 +38,8 @@ class _SuraDatielsScreenState extends State<SuraDatielsScreen> {
               margin: EdgeInsets.symmetric(vertical: 48, horizontal: 24),
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(12)),
-              child: varses.isEmpty
-                  ? Center(
+              child:varses.isEmpty?
+                   Center(
                       child: CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(
                           MyThemeData.primaryColor),
